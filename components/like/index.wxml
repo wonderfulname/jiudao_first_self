@@ -1,0 +1,6 @@
+<!--components/like/index.wxml-->
+<view class="container">
+    <image src="{{likeImageSrc}}"></image>
+    <image src="{{disLikeImageSrc}}"></image>
+    <text>{{likeCount}}</text>
+</view>
