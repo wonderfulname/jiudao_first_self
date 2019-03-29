@@ -26,6 +26,7 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    //点击爱心 更新数据
     onLike:function(event) {
 
       let isLike = this.properties.isLike;
