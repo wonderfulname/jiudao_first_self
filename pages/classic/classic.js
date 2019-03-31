@@ -17,7 +17,7 @@ Page({
     http.request({
       url: 'classic/latest',
       success: (res) => {
-        console.log(res);
+        console.log(res)
       }
     })
   },
