@@ -42,7 +42,7 @@ Page({
   },
   onPrevious(event) {
     // console.log(event)
-    this._updateClassic('previous')
+    this._updateClassic('previous');
   },
   _updateClassic(nextOrPrev) {
     let index = this.data.classicObj.index;
