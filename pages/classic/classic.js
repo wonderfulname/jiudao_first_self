@@ -35,5 +35,24 @@ Page({
     likeModel.like(behavior, classicObj.id, classicObj.type,(res)=> {
       console.log(res)
     })
+  },
+  onNext(event) {
+    // console.log(event)
+    this._updateClassic('next')
+  },
+  onPrevious(event) {
+    // console.log(event)
+    this._updateClassic('previous')
+  },
+  _updateClassic(nextOrPrev) {
+    let index = this.data.classicObj.index;
+    classicModel.getNextOrPrev(index, nextOrPrev, (res) => {
+      console.log(res);
+      this.setData({
+        classicObj: res,
+        latest: classicModel.isLatest(res.index),
+        first: classicModel.isFirst(res.index)
+      })
+    });
   }
 })

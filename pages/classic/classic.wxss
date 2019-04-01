@@ -23,3 +23,8 @@
 .header .like {
   margin-top: 6rpx;
 }
+
+.navi {
+  position: absolute;
+  bottom: 40rpx;
+}
