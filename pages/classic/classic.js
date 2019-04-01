@@ -25,7 +25,7 @@ Page({
     })
   },
 
-  onLike: function(event) {
+  onLike(event) {
     // console.log(event)
     let behavior = event.detail.behavior;
     let classicObj = this.data.classicObj
