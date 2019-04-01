@@ -1,2 +1,3 @@
 <!--pages/classic/classic.wxml-->
-<v-like isLike="{{classicObj.like_status}}" likeCount="{{classicObj.fav_nums}}"></v-like>
+<v-like bind:isLike="onLike" isLike="{{classicObj.like_status}}" likeCount="{{classicObj.fav_nums}}"></v-like>
+<v-movie image="{{classicObj.image}}" content="{{classicObj.content}}"></v-movie>
