@@ -22,7 +22,7 @@ Page({
    */
   onLoad: function (options) {
     classicModel.getLatest((res) => {
-      console.log(res)
+      // console.log(res)
       this.setData({
         classicObj: res,
         isLike: res.like_status,
@@ -37,7 +37,7 @@ Page({
     let classicObj = this.data.classicObj
     //调用点赞接口
     likeModel.like(behavior, classicObj.id, classicObj.type,(res)=> {
-      console.log(res)
+      // console.log(res)
     })
   },
   onNext(event) {
@@ -51,7 +51,7 @@ Page({
   _updateClassic(nextOrPrev) {
     let index = this.data.classicObj.index;
     classicModel.getNextOrPrev(index, nextOrPrev, (res) => {
-      console.log(res);
+      // console.log(res);
       this._getLikeStatus(res.id, res.type);
       this.setData({
         classicObj: res,
