@@ -12,7 +12,9 @@ Page({
   data: {
     classicObj: {},
     first: false,
-    latest: true
+    latest: true,
+    isLike: false,
+    likeCount: 0
   },
 
   /**
@@ -22,7 +24,9 @@ Page({
     classicModel.getLatest((res) => {
       console.log(res)
       this.setData({
-        classicObj: res
+        classicObj: res,
+        isLike: res.like_status,
+        likeCount: res.fav_nums
       })
     })
   },
@@ -48,10 +52,20 @@ Page({
     let index = this.data.classicObj.index;
     classicModel.getNextOrPrev(index, nextOrPrev, (res) => {
       console.log(res);
+      this._getLikeStatus(res.id, res.type);
       this.setData({
         classicObj: res,
         latest: classicModel.isLatest(res.index),
         first: classicModel.isFirst(res.index)
+      })
+    });
+  },
+  //获取点赞信息
+  _getLikeStatus(artId, category) {
+    likeModel.getClassicLikeStatus(artId, category, (res) => {
+      this.setData({
+        isLike: res.like_status,
+        likeCount: res.fav_nums
       })
     });
   }

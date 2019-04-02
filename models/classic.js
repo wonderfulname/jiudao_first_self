@@ -5,18 +5,28 @@ class ClassicModel extends HTTP {
       url: 'classic/latest',
       success: (res) => {
         callback(res);
-        this._setLatestIndex(res.index)
+        this._setLatestIndex(res.index);
+        let key = this._getKey(res.index);
+        wx;wx.setStorageSync(key, res);
       }
     })
   }
 
   getNextOrPrev(index, nextOrPrev, callback) {
-    this.request({
-      url: `classic/${index}/${nextOrPrev}`,
-      success: (res) => {
-        callback(res)
-      }
-    })
+    //缓存中寻找 or 请求API 写入到缓存中
+    let key = this._getKey(nextOrPrev === 'next' ? index + 1 : index - 1);
+    let classic = wx.getStorageSync(key);
+    if (!classic) {
+      this.request({
+        url: `classic/${index}/${nextOrPrev}`,
+        success: (res) => {
+          wx.setStorageSync(this._getKey(res.index), res);
+          callback(res)
+        }
+      })
+    } else {
+      callback(classic)
+    }
   }
 
   isFirst(index) {
@@ -35,6 +45,11 @@ class ClassicModel extends HTTP {
   _getLatestIndex() {
     let index = wx.getStorageSync('latest');
     return index;
+  }
+
+  _getKey(index) {
+    let key = `classic-${index}`;
+    return key;
   }
 }
 
