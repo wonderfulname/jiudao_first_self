@@ -13,7 +13,7 @@ Component({
    */
   data: {
     pauseSrc: 'images/player@waitting.png',
-    playSrc: 'player@waitting.png'
+    playSrc: 'images/player@waitting.png'
   },
 
   /**
