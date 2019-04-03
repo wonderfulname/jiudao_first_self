@@ -16,7 +16,8 @@
 }
 
 .description {
-  width: 216rpx;
+  width: 100%;
+  box-sizing: border-box;
   position: absolute;
   bottom: 0;
   padding: 5rpx 10rpx 8rpx 15rpx;

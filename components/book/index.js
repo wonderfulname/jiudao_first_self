@@ -18,6 +18,11 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    gotoBookDetail() {
+      const bookId = this.properties.book.id;
+      wx.navigateTo({
+        url: `../../pages/book/book-detail/index?bookId=${bookId}`,
+      })
+    }
   }
 })

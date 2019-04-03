@@ -9,6 +9,15 @@ class BookModel extends HTTP {
       }
     })
   }
+
+  getBookDetail(bookId, callback) {
+    this.request({
+      url: `book/${bookId}/detail`,
+      success: (res) => {
+        callback(res)
+      } 
+    })
+  }
 }
 
 export {BookModel}
