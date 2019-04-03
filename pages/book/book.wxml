@@ -1,0 +1,5 @@
+<!--pages/book/book.wxml-->
+
+<view wx:for="{{bookList}}">
+  <v-book book="{{item}}"></v-book>
+</view>
