@@ -6,6 +6,7 @@ Component({
   options: {
     multipleSlots: true
   },
+  externalClasses: ['my-tag'],
   properties: {
     text: String
   },

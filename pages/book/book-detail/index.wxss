@@ -49,11 +49,28 @@
 .comments-container {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .comments-container v-tag {
   margin-right: 15rpx;
   margin-bottom: 10rpx;
+}
+
+/* .comments-container v-tag:nth-child(1) > view{
+  background-color: #fffbdd;
+} */
+
+/* .comments-container v-tag:nth-child(2) > view{
+  background-color: #eefbff;
+} */
+
+.ex-tag1 {
+  background-color: #fffbdd !important;
+}
+
+.ex-tag2 {
+  background-color: #eefbff !important;
 }
 
 .comments-container .num {

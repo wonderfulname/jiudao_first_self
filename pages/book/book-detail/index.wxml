@@ -10,11 +10,15 @@
     <text class='headline'>短评</text>
     <view class='comments-container'>
       <block wx:for="{{comments}}" wx:key="content">
-        <v-tag text="{{item.content}}">
+        <v-tag my-tag="{{index ===0 ? 'ex-tag1' : (index === 1 ? 'ex-tag2' : '')}}" text="{{item.content}}">
           <text slot="after" class='num'>+{{item.nums}}</text>
         </v-tag>
-        
       </block>
     </view>
+  </view>
+  <!-- 内容简介  -->
+  <view class='sub-container'>
+    <text class='headline'>内容简介</text>
+    <view class='content'>{{bookDetail.summary}}</view>
   </view>
 </view>
