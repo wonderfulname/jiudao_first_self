@@ -1,4 +1,5 @@
 <!--pages/book/book-detail/index.wxml-->
+<wxs src="../../../utils/filter.wxs" module="filter" />
 <view class='container'>
   <view class='head'>
     <image src='{{bookDetail.image}}'></image>
@@ -19,6 +20,6 @@
   <!-- 内容简介  -->
   <view class='sub-container'>
     <text class='headline'>内容简介</text>
-    <view class='content'>{{bookDetail.summary}}</view>
+    <view class='content'>{{filter.format(bookDetail.summary)}}</view>
   </view>
 </view>
