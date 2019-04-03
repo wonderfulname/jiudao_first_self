@@ -20,9 +20,10 @@ Component({
   methods: {
     gotoBookDetail() {
       const bookId = this.properties.book.id;
-      wx.navigateTo({
-        url: `../../pages/book/book-detail/index?bookId=${bookId}`,
-      })
+      // wx.navigateTo({
+      //   url: `../../pages/book/book-detail/index?bookId=${bookId}`,
+      // })
+      this.triggerEvent('sendBookId', {bookId});
     }
   }
 })

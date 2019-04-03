@@ -18,6 +18,24 @@ class BookModel extends HTTP {
       } 
     })
   }
+
+  getBookShortComment(bookId, callback) {
+    this.request({
+      url: `book/${bookId}/short_comment`,
+      success: (res) => {
+        callback(res);
+      }
+    })
+  }
+
+  getBookFavor(bookId, callback) {
+    this.request({
+      url: `book/${bookId}/favor`,
+      success: (res) => {
+        callback(res);
+      }
+    })
+  }
 }
 
 export {BookModel}
