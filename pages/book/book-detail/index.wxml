@@ -20,6 +20,6 @@
   <!-- 内容简介  -->
   <view class='sub-container'>
     <text class='headline'>内容简介</text>
-    <view class='content'>{{filter.format(bookDetail.summary)}}</view>
+    <text class='content' decode="true">{{filter.format(bookDetail.summary)}}</text>
   </view>
 </view>

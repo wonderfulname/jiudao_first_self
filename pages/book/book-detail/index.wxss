@@ -78,3 +78,8 @@
   font-size: 22rpx;
   color: #aaa;
 }
+
+.content {
+  text-indent: 1em;
+  font-weight: 500;
+}
