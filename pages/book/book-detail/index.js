@@ -19,6 +19,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.showLoading()
     const bookId = options.bookId;
     //获取书籍详情
     bookModel.getBookDetail(bookId, (res) => {
@@ -33,6 +34,7 @@ Page({
       this.setData({
         comments: res.comments
       })
+      wx.hideLoading();
     });
     //获取书籍点赞情况
     bookModel.getBookFavor(bookId, (res) => {

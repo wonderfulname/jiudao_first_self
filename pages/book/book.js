@@ -7,7 +7,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    bookList: {}
+    bookList: {},
+    isSearching: false
   },
 
   /**
@@ -27,6 +28,16 @@ Page({
     let bookId = event.detail.bookId;
     wx.navigateTo({
       url: `../../pages/book/book-detail/index?bookId=${bookId}`,
+    })
+  },
+  search(event) {
+    this.setData({
+      isSearching: true
+    })
+  },
+  onCancel(event) {
+    this.setData({
+      isSearching: false
     })
   }
 })

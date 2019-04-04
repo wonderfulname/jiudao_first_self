@@ -1,12 +1,13 @@
 <!--pages/book/book.wxml-->
 <view class='container'>
+  <!-- 搜索条 -->
   <view class='header'>
-    <view class='box'>
+    <view bindtap='search' class='box'>
       <image src='/images/icon/search.png'></image>
       <text>搜索书籍</text>
     </view>
   </view>
-
+  <!-- 精选书籍列表 -->
   <view class='sub-container'>
     <image class='head-img' src='/images/book/quality.png'></image>
     <view class='books-container'>
@@ -15,5 +16,6 @@
       </block>
     </view>
   </view>
+  <v-search bind:cancel="onCancel" wx:if="{{isSearching}}"></v-search>
 </view>
 

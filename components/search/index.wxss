@@ -1,0 +1,85 @@
+/* components/search/index.wxss */
+.container {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header {
+  width: 750rpx;
+  position: fixed;
+  height: 100rpx;
+  border-top: 1px solid #f5f5f5;
+  border-bottom: 1px solid #f5f5f5;
+  display: flex;
+  align-items: center;  
+}
+
+.search-container {
+  display: flex;
+  margin-left: 20rpx;
+  background-color: #f5f5f5;
+  border-radius: 50px;
+  align-items: center;
+}
+
+.bar {
+  width: 500rpx;
+  height: 68rpx;
+  font-size: 28rpx;
+}
+
+.in-bar {
+  /* color: #999; */
+}
+
+.icon {
+    width: 28rpx;
+    height: 28rpx;
+    margin-left: 24rpx;
+    margin-right: 16rpx;
+}
+
+.cancel-img {
+    width: 28rpx;
+    height: 28rpx;
+    margin-right: 20rpx;
+}
+
+.cancel {
+  width: 120rpx;
+  text-align: center;
+}
+
+.history {
+  width: 690rpx;
+  margin: 40rpx 0 20rpx 0;
+  display: flex;
+  font-size: 28rpx;
+  margin-top: 160rpx;
+  flex-direction: column;
+}
+
+.hot-search {
+  margin-top: 70rpx;
+}
+
+.title {
+  line-height: 30rpx;
+  display: flex;
+  align-items: center;
+}
+
+.chunk {
+  height: 30rpx;
+  width: 10rpx;
+  background-color: #000;
+  margin-right: 20rpx;
+}
