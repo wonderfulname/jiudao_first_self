@@ -11,10 +11,11 @@
     <text class='headline'>短评</text>
     <view class='comments-container'>
       <block wx:for="{{filter.limit(comments, 10)}}" wx:key="content">
-        <v-tag my-tag="{{index ===0 ? 'ex-tag1' : (index === 1 ? 'ex-tag2' : '')}}" text="{{item.content}}">
+        <v-tag my-tag="{{tool.highlight(index)}}" text="{{item.content}}">
           <text slot="after" class='num'>+{{item.nums}}</text>
         </v-tag>
       </block>
+      <view class='no-comment' wx:if="{{comments.length === 0}}">暂无短评</view>
     </view>
   </view>
   <!-- 内容简介  -->
@@ -44,8 +45,8 @@
   </view>
   <!-- 输入短评 -->
   <view class='post-container'>
-    <view class='post-fake'>
-      <text bindtap='showDialog'>输入短评</text>
+    <view class='post-fake' bindtap='showDialog'>
+      <text>输入短评</text>
     </view>
     <view class='like-container'>
       <v-like bind:isLike="onLike" isLike="{{likeStatus.like_status}}" likeCount="{{likeStatus.fav_nums}}"></v-like>
@@ -53,6 +54,36 @@
   </view>
   <!-- 短片弹出框 -->
   <view hidden='{{!isShowingDialog}}' class='posting-container'>
-    <text bindtap='closeDialog'>取消</text>
+    <view class='post-header'>
+      <text wx:if="{{comments.length > 0}}">仅可点击标签+1</text>
+      <text wx:else="{{comments.length === 0}}">暂无短评</text>
+      <text bindtap='closeDialog' class='cancel'>取消</text>
+    </view>
+    <view class='comment-container'>
+      <block wx:for="{{filter.limit(comments, 3)}}" wx:key="content">
+        <v-tag bind:sendComment="getComment" my-tag="{{tool.highlight(index)}}" text="{{item.content}}">
+          <text slot="after" class='num'>+{{item.nums}}</text>
+        </v-tag>
+      </block>
+    </view>
+    <input bindconfirm="getComment" class='post' placeholder='短评最多12个字'></input>
   </view>
+  <!-- 遮罩 -->
+  <v-mask hidden='{{!isShowingDialog}}'></v-mask>
 </view>
+
+<wxs module="tool">
+  var highlight = function(index) {
+    if (index === 0) {
+      return 'ex-tag1';
+    } else if (index === 1) {
+      return 'ex-tag2'
+    } else {
+      return ''
+    }
+  }
+
+  module.exports= {
+    highlight: highlight
+  }
+</wxs>

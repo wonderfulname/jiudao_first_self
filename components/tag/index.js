@@ -22,6 +22,9 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    onTap(event) {
+      let comment = this.properties.text;
+      this.triggerEvent('sendComment', {comment});
+    }
   }
 })

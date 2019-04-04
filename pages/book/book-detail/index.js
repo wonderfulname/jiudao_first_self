@@ -60,5 +60,38 @@ Page({
     this.setData({
       isShowingDialog: false
     })
+  },
+  getComment(event) {
+    console.log(event)
+    const comment = event.detail.comment || event.detail.value;
+    if (!comment) {
+      return false;
+    }
+    if (comment.length > 12) {
+      wx.showToast({
+        title: '短评最多12个字',
+        icon: 'none'
+      })
+
+      return false;
+    }
+
+    bookModel.addShortComment(this.data.bookDetail.id, comment, (res) => {
+      console.log(res);
+      wx.showToast({
+        title: '+1',
+        icon: 'none'
+      })
+      let comments = this.data.comments;
+      comments.unshift({
+        content: comment,
+        nums: 1
+      });
+
+      this.setData({
+        comments,
+        isShowingDialog: false
+      });
+    })
   }
 }) 
