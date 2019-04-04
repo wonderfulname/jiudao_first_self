@@ -45,7 +45,7 @@
 					"id": 0,
 					"name": "book-detail",
 					"pathName": "pages/book/book-detail/index",
-					"query": "bookId=1061",
+					"query": "bookId=1002",
 					"scene": null
 				}
 			]
