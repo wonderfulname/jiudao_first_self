@@ -1,5 +1,5 @@
 <!--pages/book/book.wxml-->
-<view class='container'>
+<view wx:if="{{!isSearching}}" class='container'>
   <!-- 搜索条 -->
   <view class='header'>
     <view bindtap='search' class='box'>
@@ -16,6 +16,6 @@
       </block>
     </view>
   </view>
-  <v-search bind:cancel="onCancel" wx:if="{{isSearching}}"></v-search>
 </view>
+<v-search bind:cancel="onCancel" wx:if="{{isSearching}}"></v-search>
 

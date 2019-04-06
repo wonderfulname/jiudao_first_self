@@ -12,8 +12,13 @@ class KeywordModel extends HTTP {
     return keywordsList;
   }
 
-  getHot() {
-    
+  getHot(callback) {
+    this.request({
+      url: 'book/hot_keyword',
+      success: (res) => {
+        callback(res)
+      }
+    })
   }
 
   addToHistory(seached) {
@@ -30,6 +35,9 @@ class KeywordModel extends HTTP {
       newList.unshift(seached)
       wx.setStorageSync(this.keyword, newList)
     } else {
+      if (keywordsList.length >= this.maxLengh) {
+        keywordsList.pop()
+      }
       // 添加新记录
       keywordsList.unshift(seached);
       wx.setStorageSync(this.keyword, keywordsList)

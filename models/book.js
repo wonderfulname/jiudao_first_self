@@ -51,6 +51,20 @@ class BookModel extends HTTP {
       }
     })
   }
+  //书籍搜索
+  searchBook(start, q, callback) {
+    this.request({
+      url: 'book/search',
+      data: {
+        start,
+        summary: 1,
+        q
+      },
+      success: (res)=> {
+        callback(res)
+      }
+    })
+  }
 }
 
 export {BookModel}
