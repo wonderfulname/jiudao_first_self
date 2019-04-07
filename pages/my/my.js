@@ -27,7 +27,7 @@ Page({
 
   },
   //判断用户是否已经授权
-  userAuthorrize() {
+  userAuthorrize() { 
     wx.getSetting({
       success: (res) => {
         console.log(res)
