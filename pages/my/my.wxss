@@ -68,6 +68,16 @@
     margin-bottom: 30rpx;
 }
 
+.preview-container {
+    margin-top: 30rpx;
+    width: 690rpx;
+    display: flex;
+    flex-direction: row;
+    padding:0 30rpx;
+    flex-wrap:wrap;
+    justify-content: space-between;
+}
+
 .about-us {
     display: flex;
     flex-direction: column;

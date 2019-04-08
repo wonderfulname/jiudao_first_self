@@ -1,9 +1,9 @@
 <!--components/preview/index.wxml-->
-<view class='container'>
+<view bindtap='onTap' class='container' >
   <view class='head'>
-    <v-tag text="{{classic.type}}"></v-tag>
-    <like isLike="{{true}}" likeCount="{{classic.fav_nums}}"></like>
+    <v-tag tag-class="tag" text="{{typeText}}"></v-tag>
+    <v-like class="like" readOnly="{{true}}" isLike="{{true}}" likeCount="{{classic.fav_nums}}"></v-like>
   </view>
-  <image src='{{classic.image}}'></image>
-  <view>{{classic.content}}</view>
+  <image class="{{classic.type === 200 ? 'music-img' : 'other-img'}}" src='{{classic.image}}'></image>
+  <view class='text'>{{classic.content}}</view>
 </view>

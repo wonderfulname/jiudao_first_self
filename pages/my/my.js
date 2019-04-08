@@ -64,5 +64,12 @@ Page({
         }
       }
     })
+  },
+  onJumpToDetail(event) {
+    const cid = event.detail.cid;
+    const type = event.detail.type;
+    wx.navigateTo({
+      url: `/pages/classic-detail/index?cid=${cid}&type=${type}`
+    })
   }
 })

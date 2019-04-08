@@ -6,9 +6,9 @@ Component({
   properties: {
     classic: {
       type: Object,
-      observer: (newVal) => {
+      observer: function(newVal) {
         if (newVal) {
-          let typeText = {
+          var typeText = {
             100: "电影",
             200: "音乐",
             300: "句子"
@@ -32,6 +32,11 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    onTap(event) {
+      this.triggerEvent('tripping', {
+        cid: this.properties.classic.id,
+        type: this.properties.classic.type
+      })
+    }
   }
 })

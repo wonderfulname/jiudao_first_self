@@ -39,6 +39,15 @@ class ClassicModel extends HTTP {
     })
   }
 
+  getById(cid, type, callback) {
+    this.request({
+      url: `classic/${type}/${cid}`,
+      success: res => {
+        callback(res)
+      }
+    })
+  }
+
   isFirst(index) {
     return index === 1 ? true : false
   }

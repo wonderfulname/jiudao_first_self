@@ -10,6 +10,9 @@ Component({
     },
     likeCount: {
       type: Number
+    },
+    readOnly: {
+      type: Boolean
     }
   },
 
@@ -28,6 +31,9 @@ Component({
   methods: {
     //点击爱心 更新数据
     onLike:function(event) {
+      if (this.properties.readOnly) {
+        return;
+      }
 
       let isLike = this.properties.isLike;
       let likeCount = this.properties.likeCount;

@@ -22,7 +22,7 @@
       <image class='headline' src='/images/my/like.png'></image>
       <view class='preview-container'>
       <block wx:for="{{classicFavorList}}" wx:key="">
-        <v-preview classic="{{item}}"></v-preview>
+        <v-preview bind:tripping="onJumpToDetail" class="preview" classic="{{item}}"></v-preview>
       </block>   
       </view>
     </view>
