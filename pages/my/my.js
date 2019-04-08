@@ -22,27 +22,26 @@ Page({
 
   },
   onGetUserInfo(e) {
-    // console.log(e)
+    console.log(e.detail)
     this.userAuthorrize()
 
   },
   //判断用户是否已经授权
-  userAuthorrize() { 
+  userAuthorrize() {
     wx.getSetting({
       success: (res) => {
-        console.log(res)
+        // console.log(res)
+        //如果授权过
         if (res.authSetting['scope.userInfo']) {
           wx.getUserInfo({
             success: (res) => {
               console.log(res)
               this.setData({
-                authorized: true,
-                userInfo: res.userInfo
+                userInfo: res.userInfo,
+                authorized: true
               })
             }
           })
-        } else {
-          console.log('error')
         }
       }
     })

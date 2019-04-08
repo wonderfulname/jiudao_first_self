@@ -2,9 +2,12 @@
 <view class="container">
     <image src="/images/my/my@bg.png" class="bg"></image>
     <!-- <open-data type="userAvatarUrl" class="avatar avatar-position"></open-data> -->
-    <button wx:if="{{!authorized}}" plain="true" open-type="getUserInfo" bindgetuserinfo="onGetUserInfo" class='avatar-position'>
+    <!-- <button wx:if="{{!authorized}}" plain="true" open-type="getUserInfo" bindgetuserinfo="onGetUserInfo" class='avatar-position'>
       <image class='avatar' src="../../images/my/my.png"></image>
-    </button>
+    </button> -->
+    <v-button wx:if="{{!authorized}}" openType='getUserInfo' bind:getUserInfo="onGetUserInfo" class="avatar-position">
+      <image class="avatar" slot="img" src="../../images/my/my.png"></image>
+    </v-button>
     <view wx:if="{{authorized}}" class="avatar-position">
       <image class='avatar' src='{{userInfo.avatarUrl}}'></image>
     </view>

@@ -13,17 +13,17 @@
 .avatar-position {
     position: absolute;
     top: 255rpx;
-    width: 120rpx;
+    /* width: 120rpx;
     height: 120rpx;
     overflow: hidden;
-    border-radius: 50%;
-    border: none !important;
-    padding: 0 !important;
+    border-radius: 50%; */
 }
 
 .my-img {
     width: 120rpx;
     height: 120rpx;
+    overflow: hidden;
+    border-radius: 50%;
 }
 
 .avatar-container {
@@ -35,6 +35,8 @@
 .avatar {
     width: 120rpx;
     height: 120rpx;
+    overflow: hidden;
+    border-radius: 50%;
 }
 
 .about-container {
