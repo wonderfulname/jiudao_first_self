@@ -28,3 +28,19 @@
   position: absolute;
   bottom: 40rpx;
 }
+
+.header-right {
+  display: flex;
+  align-items: center;
+  padding-right: 20rpx;
+}
+
+.share-btn {
+  margin-left: 20rpx;
+  margin-top: 10rpx;
+}
+
+.btn-image {
+  width: 40rpx;
+  height: 40rpx;
+}

@@ -1,0 +1,9 @@
+<!--components/preview/index.wxml-->
+<view class='container'>
+  <view class='head'>
+    <v-tag text="{{classic.type}}"></v-tag>
+    <like isLike="{{true}}" likeCount="{{classic.fav_nums}}"></like>
+  </view>
+  <image src='{{classic.image}}'></image>
+  <view>{{classic.content}}</view>
+</view>

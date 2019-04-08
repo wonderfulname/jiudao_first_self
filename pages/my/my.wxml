@@ -2,9 +2,6 @@
 <view class="container">
     <image src="/images/my/my@bg.png" class="bg"></image>
     <!-- <open-data type="userAvatarUrl" class="avatar avatar-position"></open-data> -->
-    <!-- <button wx:if="{{!authorized}}" plain="true" open-type="getUserInfo" bindgetuserinfo="onGetUserInfo" class='avatar-position'>
-      <image class='avatar' src="../../images/my/my.png"></image>
-    </button> -->
     <v-button wx:if="{{!authorized}}" openType='getUserInfo' bind:getUserInfo="onGetUserInfo" class="avatar-position">
       <image class="avatar" slot="img" src="../../images/my/my.png"></image>
     </v-button>
@@ -18,6 +15,15 @@
         </view>
         <view class="about-us">
             <text class="description">喜欢的书</text>
+            <text>{{likedBooks}}</text>
         </view>
+    </view>
+    <view class='like-container'>
+      <image class='headline' src='/images/my/like.png'></image>
+      <view class='preview-container'>
+      <block wx:for="{{classicFavorList}}" wx:key="">
+        <v-preview classic="{{item}}"></v-preview>
+      </block>   
+      </view>
     </view>
 </view>

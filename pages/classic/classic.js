@@ -68,5 +68,8 @@ Page({
         likeCount: res.fav_nums
       })
     });
+  },
+  onGetUserInfo(e) {
+    console.log(e)
   }
 })

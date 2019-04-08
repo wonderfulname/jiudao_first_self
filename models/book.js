@@ -65,6 +65,15 @@ class BookModel extends HTTP {
       }
     })
   }
+  //喜欢的书
+  getLikedBooks(callback) {
+    this.request({
+      url: 'book/favor/count',
+      success: (res) => {
+        callback(res);
+      }
+    })
+  }
 }
 
 export {BookModel}

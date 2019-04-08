@@ -29,6 +29,16 @@ class ClassicModel extends HTTP {
     }
   }
 
+  //获取我喜欢的期刊
+  getMyFavorPeriodical(callback) {
+    this.request({
+      url: 'classic/favor',
+      success: (res) => {
+        callback(res)
+      }
+    })
+  }
+
   isFirst(index) {
     return index === 1 ? true : false
   }
