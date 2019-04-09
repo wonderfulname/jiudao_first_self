@@ -34,10 +34,18 @@
       </view>
     </view>
   </view>
-  <view wx:if="{{isSearching}}" class='books-container"'>
-    <block wx:for="{{searchResultArray}}" wx:key="{{item.id}}">
-      <v-book book="{{item}}" class="book" />
-    </block>
-    <view class='no-books' wx:if="{{hasntBooks}}">暂无书籍</view>
-  </view>
+  <scroll-view wx:if="{{isSearching}}" class='scroll-container'
+    scroll-y
+    style="height: 100vh;"
+    bindscrolltolower="lower"
+  >
+    <view class='books-container"'>
+      <block wx:for="{{searchResultArray}}" wx:key="{{item.id}}">
+        <v-book book="{{item}}" class="book" />
+      </block>
+      
+      <view class='no-books' wx:if="{{hasntBooks}}">暂无书籍</view>
+    </view>
+  </scroll-view>
+  <v-loading class="loading" wx:if="{{loading}}"/>
 </view>

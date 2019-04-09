@@ -39,5 +39,8 @@ Page({
     this.setData({
       isSearching: false
     })
+  },
+  lower(event) {
+    console.log(event);
   }
 })

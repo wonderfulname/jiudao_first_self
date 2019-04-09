@@ -114,3 +114,7 @@
   width: 100%;
   text-align: center;
 }
+
+.loading {
+  /* margin: 50rpx 0 50rpx 0; */
+}

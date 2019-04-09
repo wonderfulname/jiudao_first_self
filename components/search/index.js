@@ -22,7 +22,13 @@ Component({
     searchStart: 0,
     searchContent: '',
     searchResultArray: [],
-    hasntBooks: false
+    hasntBooks: false,
+    totalBooks: null,
+    pagesCount: null,
+    isFirstRequest: true,
+    pageIndex: 0,
+    lock: false,
+    loading: false
   },
   attached() {
     //加载缓存
@@ -44,6 +50,7 @@ Component({
   methods: {
     onCancel(event) {
       this.triggerEvent('cancel')
+      this.initialize()
     },
     onCloseSearching(event) {
       console.log(event)
@@ -51,6 +58,7 @@ Component({
         isSearching: false,
         searchContent: ''
       });
+      this.initialize()
       console.log(this.data.searchContent)
     },
     onInput(event) {
@@ -75,9 +83,32 @@ Component({
       wx.showLoading({
         title: '加载中'
       })
-
-      bookModel.searchBook(this.data.searchStart, searchText, (res) => {
+      //请求数据
+      this.apiSearchBook(this.data.pageIndex*20, this.data.searchContent)
+    },
+    //请求搜索结果接口
+    apiSearchBook(searchStart, searchContent) {
+      this.setData({
+        lock: true,
+        pageIndex: this.data.pageIndex + 1,
+        loading: true
+      })
+      bookModel.searchBook(searchStart, searchContent, (res) => {
+        if (this.data.isFirstRequest) {
+          console.log('first')
+          const totalBooks = res.total;
+          const pagesCount = Math.ceil(totalBooks/20)
+          this.setData({
+            totalBooks,
+            pagesCount,
+            isFirstRequest: false,
+          })
+        }
+        
         console.log(res)
+        this.setData({
+          loading: false
+        })
         if (res.books.length === 0) {
           this.setData({
             hasntBooks: true
@@ -89,9 +120,30 @@ Component({
         }
 
         this.setData({
-          searchResultArray: res.books
+          searchResultArray: this.data.searchResultArray.concat(res.books)
         });
+        this.setData({
+          lock: false
+        })
         wx.hideLoading()
+      })
+    },
+    lower(event) {
+      console.log(event)
+      if (this.data.pageIndex + 1 > this.data.pagesCount) {
+        return;
+      }
+
+      if (this.data.lock) {
+        return;
+      }
+      this.apiSearchBook(this.data.pageIndex * 20, this.data.searchContent)
+    },
+    initialize() {
+      this.setData({
+        searchResultArray: [],
+        pageIndex: 0,
+        isFirstRequest: true
       })
     }
   }
